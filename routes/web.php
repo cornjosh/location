@@ -165,3 +165,9 @@ Route::post('/login/validate', 'Auth\LoginController@validate_api');
 
 // locale Route
 Route::get('lang/{locale}',[LanguageController::class,'swap']);
+
+// Device Route
+Route::resource('device', 'DeviceController');
+
+// Location Route
+Route::resource('location', 'LocationController');
