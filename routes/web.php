@@ -159,7 +159,7 @@ Route::get('/access-control', 'AccessController@index');
 Route::get('/access-control/{roles}', 'AccessController@roles');
 Route::get('/modern-admin', 'AccessController@home')->middleware('role:Admin');
 
-// Auth::routes();
+Auth::routes();
 
 Route::post('/login/validate', 'Auth\LoginController@validate_api');
 
