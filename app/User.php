@@ -39,6 +39,6 @@ class User extends Authenticatable
     ];
 
     public function devices(){
-      $this->hasMany(Device::class);
+      return $this->hasMany(Device::class);
     }
 }

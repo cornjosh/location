@@ -34,7 +34,7 @@ $(document).ready(function() {
     pageLength: 4,
     buttons: [
       {
-        text: "<i class='feather icon-plus'></i> Add New",
+        text: "<i class='feather icon-plus'></i> 新增",
         action: function() {
           $(this).removeClass("btn-secondary")
           $(".add-new-data").addClass("show")
@@ -83,7 +83,7 @@ $(document).ready(function() {
     pageLength: 4,
     buttons: [
       {
-        text: "<i class='feather icon-plus'></i> Add New",
+        text: "<i class='feather icon-plus'></i> 新增",
         action: function() {
           $(this).removeClass("btn-secondary")
           $(".add-new-data").addClass("show")
@@ -123,38 +123,38 @@ $(document).ready(function() {
     $("#data-category, #data-status").prop("selectedIndex", 0)
   })
 
-  // On Edit
-  $('.action-edit').on("click",function(e){
-    e.stopPropagation();
-    $('#data-name').val('Altec Lansing - Bluetooth Speaker');
-    $('#data-price').val('$99');
-    $(".add-new-data").addClass("show");
-    $(".overlay-bg").addClass("show");
-  });
+  // // On Edit
+  // $('.action-edit').on("click",function(e){
+  //   e.stopPropagation();
+  //   $('#data-name').val('Altec Lansing - Bluetooth Speaker');
+  //   $('#data-price').val('$99');
+  //   $(".add-new-data").addClass("show");
+  //   $(".overlay-bg").addClass("show");
+  // });
+  //
+  // // On Delete
+  // $('.action-delete').on("click", function(e){
+  //   e.stopPropagation();
+  //   $(this).closest('td').parent('tr').fadeOut();
+  // });
 
-  // On Delete
-  $('.action-delete').on("click", function(e){
-    e.stopPropagation();
-    $(this).closest('td').parent('tr').fadeOut();
-  });
-
-  // dropzone init
-  Dropzone.options.dataListUpload = {
-    complete: function(files) {
-      var _this = this
-      // checks files in class dropzone and remove that files
-      $(".hide-data-sidebar, .cancel-data-btn, .actions .dt-buttons").on(
-        "click",
-        function() {
-          $(".dropzone")[0].dropzone.files.forEach(function(file) {
-            file.previewElement.remove()
-          })
-          $(".dropzone").removeClass("dz-started")
-        }
-      )
-    }
-  }
-  Dropzone.options.dataListUpload.complete()
+  // // dropzone init
+  // Dropzone.options.dataListUpload = {
+  //   complete: function(files) {
+  //     var _this = this
+  //     // checks files in class dropzone and remove that files
+  //     $(".hide-data-sidebar, .cancel-data-btn, .actions .dt-buttons").on(
+  //       "click",
+  //       function() {
+  //         $(".dropzone")[0].dropzone.files.forEach(function(file) {
+  //           file.previewElement.remove()
+  //         })
+  //         $(".dropzone").removeClass("dz-started")
+  //       }
+  //     )
+  //   }
+  // }
+  // Dropzone.options.dataListUpload.complete()
 
   // mac chrome checkbox fix
   if (navigator.userAgent.indexOf("Mac OS X") != -1) {
