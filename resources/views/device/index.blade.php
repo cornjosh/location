@@ -70,8 +70,20 @@
 {{--            <td class="product-update">{{ $device['updated_at'] }}</td>--}}
             <td class="product-mark">{{ $device['mark'] }}</td>
             <td class="product-action">
-              <span class="action-edit"><i class="feather icon-edit"></i></span>
-              <span class="action-delete"><i class="feather icon-trash"></i></span>
+              <span>
+                  <a type="button" class="btn btn-icon btn-outline-success mr-1 mb-1 waves-effect waves-light" href="{{ route('device.show', $device->id) }}">
+                      <i class="feather icon-search"></i>
+                  </a>
+              </span>
+              <span>
+                  <form action="{{ route('device.destroy', $device->id) }}" method="POST">
+                      @csrf
+                      {{ method_field('DELETE') }}
+                      <button type="submit" class="btn btn-icon btn-outline-primary mr-1 mb-1 waves-effect waves-light">
+                            <i class="feather icon-trash"></i>
+                      </button>
+                  </form>
+              </span>
             </td>
           </tr>
         @endforeach
@@ -84,7 +96,7 @@
     <div class="add-new-data-sidebar">
       <div class="overlay-bg"></div>
       <div class="add-new-data">
-        <form action="data-list-view" method="POST">
+        <form action="{{ route('device.store') }}" method="POST">
           @csrf
           <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
             <div>
@@ -107,7 +119,7 @@
                 </div>
                 <div class="col-sm-12 data-field-col">
                   <label for="data-mark">备注</label>
-                  <input type="text" class="form-control" name="phone" id="data-mark">
+                  <input type="text" class="form-control" name="mark" id="data-mark">
                 </div>
 {{--                <div class="col-sm-12 data-field-col">--}}
 {{--                  <label for="data-price">Price</label>--}}
