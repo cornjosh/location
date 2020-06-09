@@ -18,7 +18,8 @@ class DeviceController extends Controller
     }
 
     public function show(Device $device){
-
+        $locations = $device->locations;
+        return view('device.show', compact('locations', 'device'));
     }
 
     public function store(Request $request){
