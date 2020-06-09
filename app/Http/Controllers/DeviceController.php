@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class DeviceController extends Controller
 {
     public function index(){
-      $devices = Auth::user()->devices;
-      return view('device.index', compact('devices'));
+        $devices = Auth::user()->devices;
+        $breadcrumbs = [
+            ['link'=>"/",'name'=>"首页"], ['name'=>"设备列表"]
+        ];
+        return view('device.index', compact('devices', 'breadcrumbs'));
     }
 
     public function create(){
@@ -20,7 +23,10 @@ class DeviceController extends Controller
 
     public function show(Device $device){
         $locations = $device->locations;
-        return view('device.show', compact('locations', 'device'));
+        $breadcrumbs = [
+            ['link'=>"/",'name'=>"首页"],['link'=>route('device.index'),'name'=>"设备列表"], ['name'=>$device->phone]
+        ];
+        return view('device.show', compact('locations', 'device', 'breadcrumbs'));
     }
 
     public function store(Request $request){
@@ -58,16 +64,15 @@ class DeviceController extends Controller
     public function search(Device $device, $start = null, $end = null){
         $startTime = $start ? Carbon::parse($start) : null;
         $endTime = $end ? Carbon::parse($end) : null;
-        if ($startTime == null && $endTime == null){
-        
-        }
         
         if ($start != null && $end != null){
             $locations = $device->locations()->whereBetween('created_at', [$start, $end])->orderBy('created_at', 'asc')->get();
         }else{
             $locations = null;
         }
-
-        return view('device.search', compact('device', 'locations', 'startTime', 'endTime'));
+        $breadcrumbs = [
+            ['link'=>"/",'name'=>"首页"],['link'=>route('device.index'),'name'=>"设备列表"], ['link'=>route('device.show', $device->id),'name'=>$device->phone], ['name'=>'范围搜索']
+        ];
+        return view('device.search', compact('device', 'locations', 'startTime', 'endTime', 'breadcrumbs'));
     }
 }
