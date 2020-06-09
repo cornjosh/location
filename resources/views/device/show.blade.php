@@ -23,16 +23,7 @@
             <div class="action-btns d-none">
               <div class="btn-dropdown mr-1 mb-1">
                 <div class="btn-group dropdown actions-dropodown">
-                  <button type="button" class="btn btn-white px-1 py-1 dropdown-toggle waves-effect waves-light"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    展示
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="feather icon-trash"></i>轨迹</a>
-                    <a class="dropdown-item" href="#"><i class="feather icon-archive"></i>Archive</a>
-                    <a class="dropdown-item" href="#"><i class="feather icon-file"></i>Print</a>
-                    <a class="dropdown-item" href="#"><i class="feather icon-save"></i>Another Action</a>
-                  </div>
+                    <a class="btn btn-white waves-effect waves-light" href="{{ route('device.search', $device->id) }}"><i class="feather icon-archive"></i>范围搜索</a>
                 </div>
               </div>
             </div>

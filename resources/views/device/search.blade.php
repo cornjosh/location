@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', '时间序列位置展示')
+@section('title', '范围搜索')
 
 @section('page-style')
     <!-- Page css files -->
@@ -25,7 +25,7 @@
                                 <label for="feedback1" class="sr-only">时间段</label>
                                 <input type="text" id="datetime-end" class="form-control" placeholder="结束时间">
                             </div>
-                            <button class="btn btn-outline-primary waves-effect waves-light" id="datetime-search">查询</button>
+                            <button class="btn btn-outline-primary waves-effect waves-light" id="datetime-search">搜索</button>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                             @if($startTime && $endTime)
                                 <p>从 <code>{{ $startTime->diffForHumans() }}</code> 到 <code>{{ $endTime->diffForHumans() }}</code> 的记录</p>
                             @else
-                                <p>需要选择时间段</p>
+                                <p>需要选择时间范围</p>
                             @endif
                             <ul class="nav nav-tabs justify-content-center" role="tablist">
                                 <li class="nav-item">
