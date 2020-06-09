@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
 @endsection
 @section('page-style')
   {{-- Page css files --}}
@@ -161,8 +163,25 @@
   <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
 @endsection
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/ui/data-list-view.js')) }}"></script>
+    <script src="{{ asset(mix('js/scripts/ui/data-list-view.js')) }}"></script>
+    <script>
+        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+            @if(session()->has($msg))
+                $(document).ready(function () {
+                    Swal.fire({
+                        title: "{{ ucfirst($msg) }}",
+                        text: "{{ session()->get($msg) }}",
+                        type: "{{ $msg }}",
+                        confirmButtonClass: 'btn btn-primary',
+                        buttonsStyling: false,
+                    });
+                });
+            @endif
+        @endforeach
+    </script>
 @endsection
