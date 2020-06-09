@@ -170,7 +170,7 @@
   {{-- Page js files --}}
     <script src="{{ asset(mix('js/scripts/ui/data-list-view.js')) }}"></script>
     <script>
-        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+        @foreach (['error', 'warning', 'success', 'info'] as $msg)
             @if(session()->has($msg))
                 $(document).ready(function () {
                     Swal.fire({
@@ -183,5 +183,21 @@
                 });
             @endif
         @endforeach
+
+        @if (count($errors) > 0)
+                var message = '';
+            @foreach($errors->all() as $error)
+                message += "<p>{{ $error }}</p>";
+            @endforeach
+            $(document).ready(function () {
+                Swal.fire({
+                    title: "Error",
+                    html: message,
+                    type: "error",
+                    confirmButtonClass: 'btn btn-primary',
+                    buttonsStyling: false,
+                });
+            });
+        @endif
     </script>
 @endsection
