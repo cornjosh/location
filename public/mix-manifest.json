@@ -125,6 +125,7 @@
     "/js/scripts/forms/select/form-select2.js": "/js/scripts/forms/select/form-select2.js",
     "/js/scripts/forms/validation/form-validation.js": "/js/scripts/forms/validation/form-validation.js",
     "/js/scripts/forms/wizard-steps.js": "/js/scripts/forms/wizard-steps.js",
+    "/js/scripts/laydate/laydate.js": "/js/scripts/laydate/laydate.js",
     "/js/scripts/modal/components-modal.js": "/js/scripts/modal/components-modal.js",
     "/js/scripts/navs/navs.js": "/js/scripts/navs/navs.js",
     "/js/scripts/pages/3-columns-left-sidebar.js": "/js/scripts/pages/3-columns-left-sidebar.js",

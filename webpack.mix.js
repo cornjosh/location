@@ -48,6 +48,8 @@ mixAssetsDir('sass/core/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replac
 // script js
 mixAssetsDir('js/scripts/**/*.js', (src, dest) => mix.scripts(src, dest));
 
+mixAssetsDir('js/scripts/laydate/theme/*', (src, dest) => mix.copy(src, dest));
+
 /*
  |--------------------------------------------------------------------------
  | Application assets

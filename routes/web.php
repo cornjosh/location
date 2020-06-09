@@ -168,8 +168,9 @@ Route::get('lang/{locale}',[LanguageController::class,'swap']);
 
 Route::middleware(['auth'])->group(function () {
 // Device Route
-  Route::resource('device', 'DeviceController');
-
+    Route::resource('device', 'DeviceController');
+    Route::get('/device/{device}/search/{start?}/{end?}', 'DeviceController@search')->name('device.search');
+    
 // Location Route
-  Route::resource('location', 'LocationController');
+    Route::resource('location', 'LocationController');
 });

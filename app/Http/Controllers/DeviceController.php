@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Device;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,5 +53,21 @@ class DeviceController extends Controller
         $device->delete();
         session()->flash('success', '删除设备成功');
         return redirect()->back();
+    }
+    
+    public function search(Device $device, $start = null, $end = null){
+        $startTime = $start ? Carbon::parse($start) : null;
+        $endTime = $end ? Carbon::parse($end) : null;
+        if ($startTime == null && $endTime == null){
+        
+        }
+        
+        if ($start != null && $end != null){
+            $locations = $device->locations()->whereBetween('created_at', [$start, $end])->orderBy('created_at', 'asc')->get();
+        }else{
+            $locations = null;
+        }
+
+        return view('device.search', compact('device', 'locations', 'startTime', 'endTime'));
     }
 }
