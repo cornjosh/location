@@ -47,7 +47,7 @@ $configData = Helper::applClasses();
       <li class="nav-item {{ (request()->is($menu->url)) ? 'active' : '' }} {{ $custom_classes }}">
         <a href="{{ $menu->url }}">
           <i class="{{ $menu->icon }}"></i>
-          <span class="menu-title" data-i18n="{{ $translation }}">{{ __('locale.'.$menu->name) }}</span>
+          <span class="menu-title" data-i18n="{{ $translation }}">{{ __($menu->name) }}</span>
           @if (isset($menu->badge))
           <?php $badgeClasses = "badge badge-pill badge-primary float-right" ?>
           <span

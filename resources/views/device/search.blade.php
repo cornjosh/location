@@ -122,7 +122,7 @@
 
         <script>
             var bmap = new BMapGL.Map("line-map");
-            bmap.centerAndZoom(new BMapGL.Point({{ $locations[0]->longitude }}, {{ $locations[0]->latitude }}), 15);
+            bmap.centerAndZoom(new BMapGL.Point({{ $locations[0]->longitude ?? 0}}, {{ $locations[0]->latitude ?? 0}}), 15);
             bmap.enableScrollWheelZoom(false);
             var path = [
             @foreach($locations as $key => $location)
@@ -153,39 +153,6 @@
                 trackAni.cancel();
             });
         </script>
-{{--        <script type="text/javascript">--}}
-{{--            // GL版命名空间为BMapGL--}}
-{{--            // 按住鼠标右键，修改倾斜角和角度--}}
-{{--            $("#map-tab-center").click(function () {--}}
-{{--                var bmap = new BMapGL.Map("line-map");    // 创建Map实例--}}
-{{--                bmap.centerAndZoom(new BMapGL.Point(116.297611, 40.047363), 17);  // 初始化地图,设置中心点坐标和地图级别--}}
-{{--                bmap.enableScrollWheelZoom(true);     // 开启鼠标滚轮缩放--}}
-
-{{--                var path = [--}}
-{{--                        @foreach($locations as $key => $location)--}}
-{{--                    {--}}
-{{--                        'lng': {{ $location->longitude }},--}}
-{{--                        'lat': {{ $location->latitude }},--}}
-{{--                    },--}}
-{{--                    @endforeach--}}
-{{--                ];--}}
-{{--                var point = [];--}}
-{{--                for (var i = 0; i < path.length; i++) {--}}
-{{--                    point.push(new BMapGL.Point(path[i].lng, path[i].lat));--}}
-{{--                }--}}
-{{--                var pl = new BMapGL.Polyline(point);--}}
-{{--                setTimeout('start()', 3000);--}}
-{{--                function start () {--}}
-{{--                    trackAni = new BMapGLLib.TrackAnimation(bmap, pl, {--}}
-{{--                        overallView: true,--}}
-{{--                        tilt: 30,--}}
-{{--                        duration: 20000,--}}
-{{--                        delay: 300--}}
-{{--                    });--}}
-{{--                    trackAni.start();--}}
-{{--                }--}}
-{{--            });--}}
-{{--        </script>--}}
     @endif
 
     <script type="text/javascript">

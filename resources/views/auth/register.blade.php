@@ -18,18 +18,18 @@
                   <div class="card rounded-0 mb-0 p-2">
                       <div class="card-header pt-50 pb-1">
                           <div class="card-title">
-                              <h4 class="mb-0">Create Account</h4>
+                              <h4 class="mb-0">注册</h4>
                           </div>
                       </div>
-                      <p class="px-2">Fill the below form to create a new account.</p>
+                      <p class="px-2">创建账号</p>
                       <div class="card-content">
                           <div class="card-body pt-0">
                             <form method="POST" action="{{ route('register') }}">
                               @csrf
                                   <div class="form-label-group">
                                       <!-- <input type="text" id="inputName" class="form-control" placeholder="Name" required> -->
-                                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                      <label for="name">Name</label>
+                                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="名称" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                      <label for="name">名称</label>
                                       @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -48,8 +48,8 @@
                                   </div>
                                   <div class="form-label-group">
                                       <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
-                                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="new-password">
-                                      <label for="password">Password</label>
+                                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="密码" required autocomplete="new-password">
+                                      <label for="password">密码</label>
                                       @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -58,8 +58,8 @@
                                   </div>
                                   <div class="form-label-group">
                                       <!-- <input type="password" id="inputConfPassword" class="form-control" placeholder="Confirm Password" required> -->
-                                      <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
-                                      <label for="password-confirm">Confirm Password</label>
+                                      <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="确认密码" required autocomplete="new-password">
+                                      <label for="password-confirm">确认密码</label>
                                   </div>
                                   <div class="form-group row">
                                       <div class="col-12">
@@ -71,13 +71,13 @@
                                                   <i class="vs-icon feather icon-check"></i>
                                                 </span>
                                               </span>
-                                              <span class=""> I accept the terms & conditions.</span>
+                                              <span class="">同意ToS</span>
                                             </div>
                                           </fieldset>
                                       </div>
                                   </div>
-                                  <a href="login" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
-                                  <button type="submit" class="btn btn-primary float-right btn-inline mb-50">Register</a>
+                                  <a href="login" class="btn btn-outline-primary float-left btn-inline mb-50">登录</a>
+                                <button type="submit" class="btn btn-primary float-right btn-inline mb-50">注册</button>
                               </form>
                           </div>
                       </div>

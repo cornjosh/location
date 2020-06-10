@@ -15,6 +15,10 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
+                            <span class="badge badge-success float-right" id="location-string">地理位置解析中</span>
+                            地理位置
+                        </li>
+                        <li class="list-group-item">
                             <span class="badge badge-primary float-right">{{ $location->updated_at }}</span>
                             更新时间
                         </li>
@@ -31,11 +35,11 @@
                             设备名
                         </li>
                         <li class="list-group-item">
-                            <span class="badge badge-success float-right">{{ number_format($location['longitude'], 6, '.', '') }}</span>
+                            <span class="badge badge-info float-right">{{ number_format($location['longitude'], 6, '.', '') }}</span>
                             经度
                         </li>
                         <li class="list-group-item">
-                            <span class="badge badge-success float-right">{{ number_format($location['latitude'], 6, '.', '') }}</span>
+                            <span class="badge badge-info float-right">{{ number_format($location['latitude'], 6, '.', '') }}</span>
                             纬度
                         </li>
                     </ul>
@@ -81,5 +85,12 @@
         var marker = new BMap.Marker(point);  // 创建标注
         map.addOverlay(marker);               // 将标注添加到地图中
         marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+        var myGeo = new BMap.Geocoder({extensions_town: true});
+        myGeo.getLocation(new BMap.Point({{ $location->longitude }}, {{ $location->latitude }}), function(result){
+            if (result){
+                $('#location-string').text(result.address);
+            }
+        });
     </script>
 @endsection

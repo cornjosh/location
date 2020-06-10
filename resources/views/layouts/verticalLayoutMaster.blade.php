@@ -50,7 +50,7 @@
   @if($configData['blankPage'] == false && isset($configData['blankPage']))
   @include('pages/customizer')
 
-  @include('pages/buy-now')
+{{--  @include('pages/buy-now')--}}
   @endif
 
   <div class="sidenav-overlay"></div>
