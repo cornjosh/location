@@ -75,4 +75,8 @@ class DeviceController extends Controller
         ];
         return view('device.search', compact('device', 'locations', 'startTime', 'endTime', 'breadcrumbs'));
     }
+    
+    public function location(Device $device){
+        return view('device.location', compact('device'));
+    }
 }

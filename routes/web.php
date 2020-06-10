@@ -171,6 +171,7 @@ Route::middleware(['auth'])->group(function () {
 // Device Route
     Route::resource('device', 'DeviceController');
     Route::get('/device/{device}/search/{start?}/{end?}', 'DeviceController@search')->name('device.search');
+    Route::get('/device/{device}/location', 'DeviceController@location')->name('device.location');
     
 // Location Route
     Route::resource('location', 'LocationController');

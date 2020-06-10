@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Device;
 use App\Location;
+use http\Client\Response;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -38,9 +39,15 @@ class LocationController extends Controller
             'latitude' => $request['latitude']
         ]);
     
-        session()->flash('success', '新增位置成功');
+        if ($request->ajax()){
+            return response()->json([
+                'success' => true
+            ]);
+        }else{
+            session()->flash('success', '新增位置成功');
     
-        return redirect()->back();
+            return redirect()->back();
+        }
     }
     
     public function edit(Location $location){
