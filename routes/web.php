@@ -11,6 +11,9 @@ use App\Http\Controllers\LanguageController;
 |
 */
 
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
 
 // Route url
 Route::get('/', function (){
