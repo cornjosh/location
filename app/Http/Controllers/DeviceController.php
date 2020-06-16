@@ -77,6 +77,9 @@ class DeviceController extends Controller
     }
     
     public function location(Device $device){
-        return view('device.location', compact('device'));
+        $breadcrumbs = [
+            ['link'=>"/",'name'=>"首页"],['link'=>route('device.index'),'name'=>"设备列表"], ['link'=>route('device.show', $device->id),'name'=>$device->phone], ['name'=>'定位']
+        ];
+        return view('device.location', compact('device', 'breadcrumbs'));
     }
 }

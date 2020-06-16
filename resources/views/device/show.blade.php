@@ -23,10 +23,18 @@
             <div class="action-btns d-none">
               <div class="btn-dropdown mr-1 mb-1">
                 <div class="btn-group dropdown actions-dropodown">
-                    <a class="btn btn-white waves-effect waves-light" href="{{ route('device.search', $device->id) }}"><i class="feather icon-archive"></i>范围搜索</a>
+                    <a class="btn btn-white waves-effect waves-light" href="{{ route('device.search', $device->id) }}"><i class="fa fa-search"></i>范围搜索</a>
                 </div>
               </div>
             </div>
+
+        <div class="action-btns d-none">
+            <div class="btn-dropdown mr-1 mb-1">
+                <div class="btn-group dropdown actions-dropodown">
+                    <a class="btn btn-white waves-effect waves-light" href="{{ route('device.location', $device->id) }}"><i class="fa fa-location-arrow"></i>实时定位</a>
+                </div>
+            </div>
+        </div>
 
         {{-- DataTable starts --}}
         <div class="table-responsive">

@@ -21,10 +21,7 @@
                         <div class="card-content">
                             <div class="d-flex justify-content-around mt-2">
                                 <div class="icon">
-                                    <i class="feather icon-cloud-snow font-large-5"></i>
-                                </div>
-                                <div class="temprature mt-3">
-                                    <p class="font-large-3"> -6 <span class="mt-1">&#176;</span></p>
+                                    <i class="feather icon-map-pin font-large-5"></i>
                                 </div>
                             </div>
                             <div class="card-body">
