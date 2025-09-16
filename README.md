@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-这是一个基于 Laravel 框架开发的实时设备定位系统，支持多平台（PC端、安卓端、iPad）的设备管理和位置追踪。系统提供了完整的设备绑定、实时定位、历史轨迹查询和异常报警功能。
+一个基于 Laravel 框架开发的实时设备定位系统，支持多平台（PC端、安卓端、iPad）的设备管理和位置追踪。系统提供了完整的设备绑定、实时定位、历史轨迹查询和异常报警功能。
 
 ## 技术栈
 
@@ -12,7 +12,7 @@
 - **身份验证**: Laravel Passport (OAuth2)
 - **权限管理**: Spatie Laravel Permission
 - **前端**: Bootstrap 4, jQuery, Vue.js
-- **移动端**: Android (原生开发)
+- **移动端**: 通过浏览器支持的 Android、iPad 端
 
 ## 核心功能
 
@@ -222,41 +222,6 @@ curl -X POST http://localhost:8000/location \
   }'
 ```
 
-## 移动端集成
-
-### Android 集成
-1. 使用 HTTP 客户端库（如 OkHttp、Retrofit）
-2. 实现位置服务获取 GPS 坐标
-3. 定时上报位置数据到服务器 API
-4. 处理网络异常和重试机制
-
-### 示例 Android 代码
-```java
-// 位置上报服务
-public class LocationService {
-    private static final String API_BASE_URL = "http://your-server.com/";
-    
-    public void reportLocation(double lat, double lng, int deviceId) {
-        // 构建请求数据
-        LocationData data = new LocationData(deviceId, lat, lng);
-        
-        // 发送 POST 请求到 /location 接口
-        apiService.reportLocation(data)
-                  .enqueue(new Callback<ApiResponse>() {
-                      @Override
-                      public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                          // 处理成功响应
-                      }
-                      
-                      @Override
-                      public void onFailure(Call<ApiResponse> call, Throwable t) {
-                          // 处理失败，实现重试机制
-                      }
-                  });
-    }
-}
-```
-
 ## 性能优化
 
 ### Redis 缓存策略
@@ -312,14 +277,14 @@ $location = Cache::get("device_location_{$deviceId}");
 
 本项目基于 MIT 许可证开源，详见 [LICENSE](LICENSE) 文件。
 
-## 作者
-
-这是一个本科课堂作业项目，展示了现代 Web 开发技术在位置服务领域的应用。
-
 ## 技术支持
 
-如有技术问题或建议，欢迎提交 Issue 或联系开发者。
+本项目仅为**课堂作业**，主要用于完成课程学习目标与实践任务，并非面向生产环境或长期使用的正式项目
+
+若您在查看或使用项目过程中遇到疑问、发现问题，或有优化建议，欢迎通过 GitHub Issues 提交相关内容
+
+作者在看到 Issues 后，会在力所能及的范围内尽量提供基础解答或思路，但不保证响应时效及问题解决效果，望理解
 
 ---
 
-*最后更新时间: 2024年*
+Authored and maintained by Josh Zeng.
